@@ -81,3 +81,8 @@ describe DesiredNumber do
     end
   end
 end
+
+generator = DesiredNumber.new(100)
+answers = generator.find_combinations_from("123456789")
+puts "There are #{answers.length} answers. They are:"
+puts answers
