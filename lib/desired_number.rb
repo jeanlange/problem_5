@@ -1,13 +1,12 @@
 class DesiredNumber
-  def initialize
+  def initialize(desired)
+    @desired = desired
     @answers = []
   end
 
-  def find_combinations_for_the_answer(desired_answer, remaining_string, string_so_far = "")
+  def find_combinations_from(remaining_string, string_so_far = "")
     if remaining_string.empty?
-      puts string_so_far
-      puts eval(string_so_far)
-      if eval(string_so_far) == desired_answer
+      if eval(string_so_far) == @desired
         @answers << string_so_far
       end
       return @answers
@@ -16,6 +15,6 @@ class DesiredNumber
     # I want to recur with 0, "", "1"
     first_number = remaining_string.chars.first.to_i
     next_string = remaining_string.chars[1..-1].join
-    find_combinations_for_the_answer(desired_answer, next_string, string_so_far << first_number.to_s)
+    find_combinations_from(next_string, string_so_far << first_number.to_s)
   end
 end
