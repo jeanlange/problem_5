@@ -23,11 +23,13 @@ class DesiredNumber
       next_string = remaining_string.chars[1..-1].join
       joined = string_so_far + "#{first_number}"
       added = string_so_far + "+#{first_number}"
+      subtracted = string_so_far + "-#{first_number}"
       # puts "recurring!"
       find_combinations_from(next_string, joined)
       if !string_so_far.empty?
         # puts "answer_so_far isn't empty"
         find_combinations_from(next_string, added)
+        find_combinations_from(next_string, subtracted)
       end
     end
     return @answers

@@ -39,7 +39,7 @@ describe DesiredNumber do
     end
 
     it "can find one combo that adds up to 0 with the string 11 (subtraction)" do
-      generator = DesiredNumber.new(2)
+      generator = DesiredNumber.new(0)
       answers = generator.find_combinations_from("11")
       expect(answers.length).to eq 1
       expect(answers).to include("1-1")
