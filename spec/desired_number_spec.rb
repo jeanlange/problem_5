@@ -8,5 +8,11 @@ describe DesiredNumber do
       expect(answers.length).to eq 1
       expect(answers).to include("1")
     end
+
+    it "finds no answers expecting 2" do
+      generator = DesiredNumber.new(2)
+      answers = generator.find_combinations_from("1")
+      expect(answers.length).to eq 0
+    end
   end
 end
