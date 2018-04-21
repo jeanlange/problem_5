@@ -45,4 +45,39 @@ describe DesiredNumber do
       expect(answers).to include("1-1")
     end
   end
+
+  context "using 3 digits" do
+    # 123 => 123, 1+23, 1-23, 1+2+3, 1+2-3, 1-2+3, 1-2-3, 12+3, 12-3
+    #        123, 24,   -22,  6,     0,     2,     -4,    15,   9
+    it "can find one combo that adds up to 123 with the string 123 (123)" do
+      generator = DesiredNumber.new(123)
+      answers = generator.find_combinations_from("123")
+      expect(answers.length).to eq 1
+      expect(answers).to include("123")
+    end
+
+    it "can find one combo that adds up to -22 with the string 123 (1-23)" do
+      generator = DesiredNumber.new(-22)
+      answers = generator.find_combinations_from("123")
+      expect(answers.length).to eq 1
+      expect(answers).to include("1-23")
+    end
+
+    it "can find one combo that adds up to 0 with the string 123 (1+2-3)" do
+      generator = DesiredNumber.new(0)
+      answers = generator.find_combinations_from("123")
+      expect(answers.length).to eq 1
+      expect(answers).to include("1+2-3")
+    end
+
+    # 111 => 111, 1+11, 1-11, 1+1+1, 1+1-1, 1-1+1, 1-1-1, 11+1, 11-1
+    #        111, 12,   -10,  3,     1,     1,     -1,    12,   10
+    it "can find 2 combos that add up to 1 with the string 111 (1+1-1, 1-1+1)" do
+      generator = DesiredNumber.new(1)
+      answers = generator.find_combinations_from("111")
+      expect(answers.length).to eq 2
+      expect(answers).to include("1+1-1")
+      expect(answers).to include("1-1+1")
+    end
+  end
 end
