@@ -10,7 +10,7 @@ class DesiredNumber
         @answers << string_so_far
       end
     else
-      first_number = remaining_string.chars.first.to_i
+      first_number = remaining_string.chars.first
       next_string = remaining_string.chars[1..-1].join
       joined = string_so_far + "#{first_number}"
       added = string_so_far + "+#{first_number}"
