@@ -7,7 +7,7 @@ I found 11.
 I went about it using:
 * TDD
 * recursion
-* starting with smaller version of the problem.
+* starting with a smaller version of the problem.
 
 Take a look at
 * the git history to see how it progressed (my design changed a lot at the beginning, and continued to change throughout)
